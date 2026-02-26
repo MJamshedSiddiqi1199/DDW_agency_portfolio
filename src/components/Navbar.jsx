@@ -62,12 +62,10 @@ const Navbar = () => {
 
     // Close menu on route change
     useEffect(() => {
-        if (isMenuOpen) {
-            setTimeout(() => {
-                setIsMenuOpen(false);
-            }, 0);
-        }
-    }, [location, isMenuOpen]);
+        setTimeout(() => {
+            setIsMenuOpen(false);
+        }, 0);
+    }, [location]);
 
     const navLinks = [
         { name: 'Home', path: '/' },
