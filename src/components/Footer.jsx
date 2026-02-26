@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -39,7 +39,9 @@ const Footer = () => {
                     <div>
                         <h4 className="text-lg font-bold mb-8">Quick Links</h4>
                         <ul className="space-y-4 text-sm text-text-muted">
-                            <li className="hover:text-brand-primary cursor-pointer transition">Portfolio</li>
+                            <li className="hover:text-brand-primary cursor-pointer transition">
+                                <Link to="/projects">Portfolio</Link>
+                            </li>
                             <li className="hover:text-brand-primary cursor-pointer transition">Our Approach</li>
                             <li className="hover:text-brand-primary cursor-pointer transition">
                                 <a href="https://ddwstudio.com" target="_blank" rel="noopener noreferrer" className="text-brand-primary font-bold">Visit DDW Studio</a>

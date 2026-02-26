@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import ProjectsPage from './pages/Projectspage';
 import ScrollToTop from './components/ScrollToTop';
 import LoadingScreen from './components/LoadingScreen';
+import SmoothScroll from './components/SmoothScroll';
 
 // Wrapper component to handle route-based loading
 const AppContent = () => {
@@ -12,10 +13,14 @@ const AppContent = () => {
 
   const [prevPath, setPrevPath] = useState(location.pathname);
 
-  if (location.pathname !== prevPath) {
-    setPrevPath(location.pathname);
-    setLoading(true);
-  }
+  useEffect(() => {
+    if (location.pathname !== prevPath) {
+      setTimeout(() => {
+        setPrevPath(location.pathname);
+        setLoading(true);
+      }, 0);
+    }
+  }, [location.pathname, prevPath]);
 
   useEffect(() => {
     if (loading) {
@@ -28,13 +33,15 @@ const AppContent = () => {
   }, [loading]);
 
   return (
-    <div className="App">
-      <LoadingScreen isLoading={loading} />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-      </Routes>
-    </div>
+    <SmoothScroll>
+      <div className="App">
+        <LoadingScreen isLoading={loading} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+        </Routes>
+      </div>
+    </SmoothScroll>
   );
 };
 

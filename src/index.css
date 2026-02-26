@@ -25,9 +25,7 @@
   --font-sans: "Inter", sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* Scroll behavior handled by Lenis smooth-scroll */
 
 :root {
   color-scheme: dark;
